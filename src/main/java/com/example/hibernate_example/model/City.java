@@ -1,8 +1,11 @@
 package com.example.hibernate_example.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.Data;
 
 import javax.persistence.*;
+import java.awt.print.Book;
 
 @Data
 @Entity
@@ -16,34 +19,11 @@ public class City {
     private String name;
 
     @ManyToOne
-    @JoinColumns({
-            @JoinColumn(
-                    name = "country_id", referencedColumnName = "id"
-            )
-    })
+    @JoinColumn(name = "country_id")
     private Country country;
 
-    public long getId() {
-        return id;
-    }
-
-    public void setId(long id) {
-        this.id = id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public Country getCountry() {
+    @JsonBackReference
+    public Country getCountry(){
         return country;
-    }
-
-    public void setCountry(Country country) {
-        this.country = country;
     }
 }
