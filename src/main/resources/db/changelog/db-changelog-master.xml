@@ -5,6 +5,7 @@
         xmlns:pro="http://www.liquibase.org/xml/ns/pro"
         xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.4.xsd
       http://www.liquibase.org/xml/ns/pro http://www.liquibase.org/xml/ns/pro/liquibase-pro-4.2.xsd">
+
     <changeSet  author="Sergiu Chilat"  id="1.0.0.0">
         <createTable tableName="countries">
             <column autoIncrement="true" name="id" type="BIGINT">
@@ -16,7 +17,9 @@
             </column>
         </createTable>
     </changeSet>
-
+    <include relativeToChangelogFile="true" file="30.09.2021-add-country-code.xml"></include>
+    <include relativeToChangelogFile="true" file="04.10.2021-add-city-table.xml"></include>
+    <include relativeToChangelogFile="true" file="04.10.2021-add-city-country-fk.xml"></include>
 
 
 </databaseChangeLog>
